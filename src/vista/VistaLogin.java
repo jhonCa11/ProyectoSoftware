@@ -42,6 +42,7 @@ public class VistaLogin extends javax.swing.JFrame{
         txtUsua = new javax.swing.JTextField();
         lblUsu1 = new javax.swing.JLabel();
         btuInicieSesion = new javax.swing.JButton();
+        btuInicieSesion2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 51));
@@ -96,6 +97,17 @@ public class VistaLogin extends javax.swing.JFrame{
             }
         });
 
+        btuInicieSesion2.setBackground(new java.awt.Color(0, 102, 102));
+        btuInicieSesion2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btuInicieSesion2.setForeground(new java.awt.Color(255, 255, 255));
+        btuInicieSesion2.setText("Registrarse");
+        btuInicieSesion2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+        btuInicieSesion2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btuInicieSesion2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -108,11 +120,14 @@ public class VistaLogin extends javax.swing.JFrame{
                         .addComponent(txtUsua, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE)
                         .addComponent(jPasswordField, javax.swing.GroupLayout.Alignment.LEADING))
                     .addComponent(lblCont)
-                    .addComponent(lblUsu1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(66, 66, 66)
-                        .addComponent(btuInicieSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(lblUsu1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(52, 52, 52))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btuInicieSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btuInicieSesion2, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -127,8 +142,10 @@ public class VistaLogin extends javax.swing.JFrame{
                 .addComponent(lblCont, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
-                .addComponent(btuInicieSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btuInicieSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btuInicieSesion2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -202,6 +219,13 @@ public class VistaLogin extends javax.swing.JFrame{
     }
     }//GEN-LAST:event_btuInicieSesionActionPerformed
 
+    private void btuInicieSesion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btuInicieSesion2ActionPerformed
+        // TODO add your handling code here:
+            VistaSingUp VistaSingUp = new VistaSingUp();
+            VistaSingUp.setVisible(true);
+            this.dispose();
+    }//GEN-LAST:event_btuInicieSesion2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -240,6 +264,7 @@ public class VistaLogin extends javax.swing.JFrame{
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btuInicieSesion;
+    public javax.swing.JButton btuInicieSesion2;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

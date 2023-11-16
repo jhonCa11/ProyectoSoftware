@@ -62,33 +62,45 @@ public class ControladorCliente implements ActionListener {
     }
 
     public void add() {
-    Cliente nuevoCliente = new Cliente(); // Crear un nuevo objeto Estudiante
-    int ced = Integer.parseInt(vista.txtCedCli.getText());
-    String nom = vista.txtNomCli.getText();
-    String apel = vista.txtAplCli.getText();
-    String tel = vista.txtTelCli.getText();
-    String fecNac = vista.txtFecNacCli.getText();
-    String email = vista.txtCorrElecCli.getText();
-    String ciu = vista.txtCiuCli.getText();
-    String dir = vista.txtDirCli.getText();
-    
-    nuevoCliente.setCedula(ced);
-    nuevoCliente.setNombre(nom);
-    nuevoCliente.setApellido(apel);
-    nuevoCliente.setTelefono(tel);
-    nuevoCliente.setFechaNacimiento(fecNac);
-    nuevoCliente.setEmail(email);
-    nuevoCliente.setCiudad(ciu);
-    nuevoCliente.setDireccion(dir);
-    int r = dao.agregar(nuevoCliente);
-    if (r == 1) {
-        JOptionPane.showMessageDialog(vista, "Cliente Agregado con Exito");
-    } else {
-        JOptionPane.showMessageDialog(vista, "Error");
-    }
-    clear();
-}
+        String cedText = vista.txtCedCli.getText();
+        String nom = vista.txtNomCli.getText();
+        String apel = vista.txtAplCli.getText();
+        String tel = vista.txtTelCli.getText();
+        String fecNac = vista.txtFecNacCli.getText();
+        String email = vista.txtCorrElecCli.getText();
+        String ciu = vista.txtCiuCli.getText();
+        String dir = vista.txtDirCli.getText();
 
+        if (cedText.isEmpty() || nom.isEmpty() || apel.isEmpty() || tel.isEmpty() || fecNac.isEmpty() || email.isEmpty() || ciu.isEmpty() || dir.isEmpty()) {
+            JOptionPane.showMessageDialog(vista, "Todos los campos son obligatorios. Complete la información.");
+        } else {
+            try {
+                int ced = Integer.parseInt(cedText);
+
+                Cliente nuevoCliente = new Cliente();
+                nuevoCliente.setCedula(ced);
+                nuevoCliente.setNombre(nom);
+                nuevoCliente.setApellido(apel);
+                nuevoCliente.setTelefono(tel);
+                nuevoCliente.setFechaNacimiento(fecNac);
+                nuevoCliente.setEmail(email);
+                nuevoCliente.setCiudad(ciu);
+                nuevoCliente.setDireccion(dir);
+
+                int r = dao.agregar(nuevoCliente);
+                if (r == 1) {
+                    JOptionPane.showMessageDialog(vista, "Cliente Agregado con Éxito");
+                    clear();
+                    listar(vista.tablaCli);
+                    nuevo();
+                } else {
+                    JOptionPane.showMessageDialog(vista, "Error al agregar el cliente");
+                }
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(vista, "Ingrese un valor válido para la cédula.");
+            }
+        }
+    }
 
     public void Actualizar() {
         if (vista.txtCedCli.getText().equals("")) {
@@ -113,7 +125,7 @@ public class ControladorCliente implements ActionListener {
             cliente.setEmail(email);
             cliente.setCiudad(ciu);
             cliente.setDireccion(dir);
-            
+
             int r = dao.actualizar(cliente);
             if (r == 1) {
                 JOptionPane.showMessageDialog(vista, "Usuario Actualizado con Exito");
@@ -154,30 +166,30 @@ public class ControladorCliente implements ActionListener {
         tabla.setRowHeight(35);
         tabla.setRowMargin(10);
     }
+
     public void buscarCliente() {
-    if (vista.txtCedCli.getText().equals("")) {
-        JOptionPane.showMessageDialog(vista, "Ingrese la cédula del cliente a buscar");
-    } else {
-        int cedula = Integer.parseInt(vista.txtCedCli.getText());
-
-        Cliente clienteEncontrado = dao.buscarClientePorCedula(cedula);
-        
-        if (clienteEncontrado != null) {
-            // Mostrar los datos del cliente en los campos de la vista
-            vista.txtNomCli.setText(clienteEncontrado.getNombre());
-            vista.txtAplCli.setText(clienteEncontrado.getApellido());
-            vista.txtTelCli.setText(clienteEncontrado.getTelefono());
-            vista.txtFecNacCli.setText(clienteEncontrado.getFechaNacimiento());
-            vista.txtCorrElecCli.setText(clienteEncontrado.getEmail());
-            vista.txtCiuCli.setText(clienteEncontrado.getCiudad());
-            vista.txtDirCli.setText(clienteEncontrado.getDireccion());
+        if (vista.txtCedCli.getText().equals("")) {
+            JOptionPane.showMessageDialog(vista, "Ingrese la cédula del cliente a buscar");
         } else {
-            JOptionPane.showMessageDialog(vista, "Cliente no encontrado");
-        }
-    }
-    clear();
-}
+            int cedula = Integer.parseInt(vista.txtCedCli.getText());
 
+            Cliente clienteEncontrado = dao.buscarClientePorCedula(cedula);
+
+            if (clienteEncontrado != null) {
+                // Mostrar los datos del cliente en los campos de la vista
+                vista.txtNomCli.setText(clienteEncontrado.getNombre());
+                vista.txtAplCli.setText(clienteEncontrado.getApellido());
+                vista.txtTelCli.setText(clienteEncontrado.getTelefono());
+                vista.txtFecNacCli.setText(clienteEncontrado.getFechaNacimiento());
+                vista.txtCorrElecCli.setText(clienteEncontrado.getEmail());
+                vista.txtCiuCli.setText(clienteEncontrado.getCiudad());
+                vista.txtDirCli.setText(clienteEncontrado.getDireccion());
+            } else {
+                JOptionPane.showMessageDialog(vista, "Cliente no encontrado");
+            }
+        }
+        clear();
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -188,20 +200,18 @@ public class ControladorCliente implements ActionListener {
         }
         if (e.getSource() == vista.btnAgregarCli) {
             add();
-            listar(vista.tablaCli);
-            nuevo();
         }
         if (e.getSource() == vista.btnActuCli) {
             int fila = vista.tablaCli.getSelectedRow();
             if (fila == -1) {
                 JOptionPane.showMessageDialog(vista, "Seleccione una Fila");
             } else {
-                
+
                 int ced = Integer.parseInt((String) vista.tablaCli.getValueAt(fila, 0).toString());
                 String nom = (String) vista.tablaCli.getValueAt(fila, 1);
                 String apel = (String) vista.tablaCli.getValueAt(fila, 2);
                 String tel = (String) vista.tablaCli.getValueAt(fila, 3);
-                String fecNac = (String) vista.tablaCli.getValueAt(fila,4);
+                String fecNac = (String) vista.tablaCli.getValueAt(fila, 4);
                 String email = (String) vista.tablaCli.getValueAt(fila, 5);
                 String ciu = (String) vista.tablaCli.getValueAt(fila, 6);
                 String dir = (String) vista.tablaCli.getValueAt(fila, 7);
@@ -216,13 +226,13 @@ public class ControladorCliente implements ActionListener {
                 vista.txtDirCli.setText(dir);
             }
         }
-        
+
         if (e.getSource() == vista.btnConfirmActCli) {
             Actualizar();
             listar(vista.tablaCli);
             nuevo();
         }
-        
+
         if (e.getSource() == vista.btnElimiCli) {
             delete();
             listar(vista.tablaCli);
@@ -231,11 +241,15 @@ public class ControladorCliente implements ActionListener {
         if (e.getSource() == vista.btnRegisCli) {
             nuevo();
         }
-        
+
         if (e.getSource() == vista.btnBuscaCli) {
             buscarCliente();
-            
+
         }
 
+    }
+
+    public void showMessage(String message) {
+        JOptionPane.showMessageDialog(vista, message);
     }
 }

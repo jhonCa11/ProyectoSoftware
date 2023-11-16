@@ -227,8 +227,8 @@ public class VistaSingUp extends javax.swing.JFrame {
 
     // Si se acepta el cuadro de diálogo, regresar a la clase "VistaLogin"
     if (confirm == JOptionPane.YES_OPTION) {
-        VistaMenuAdmin VistaMenuAdmin = new VistaMenuAdmin();
-        VistaMenuAdmin.setVisible(true);
+        VistaLogin VistaLogin = new VistaLogin();
+        VistaLogin.setVisible(true);
         this.dispose(); // Cierra la vista actual
     }
     }//GEN-LAST:event_btnCancelActionPerformed

@@ -1,17 +1,47 @@
 package vista;
 
 import controlador.ControladorCliente;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
 
 public class VistaCliente extends javax.swing.JFrame {
 
+    private ControladorCliente controlador;
+
+    public VistaCliente() {
+        initComponents(); // Debería haber solo una llamada a initComponents aquí
+        initEventHandlers(); // Agrega este método para manejar eventos
+    }
     /**
      * Creates new form VistaCliente
-     */
-    public VistaCliente() {
-        initComponents();
+     */ 
+   private void initEventHandlers() {
+        btnListarCli.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                btnListarCliActionPerformed(evt);
+            }
+        });
+
+        // Otros botones...
+
+        btnAgregarCli.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                btnAgregarCliActionPerformed(evt);
+            }
+        });
+
+        btnBuscaCli.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                btnBuscaCliActionPerformed(evt);
+            }
+        });
+
+        // Resto del código existente...
     }
-    
+
     
 
     /**
@@ -324,7 +354,7 @@ public class VistaCliente extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -366,6 +396,11 @@ public class VistaCliente extends javax.swing.JFrame {
 
     private void btnAgregarCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarCliActionPerformed
         // TODO add your handling code here:
+        if (controlador != null) {
+            controlador.add();
+        } else {
+            showMessage("Error: Controlador no asignado correctamente.");
+        }
     }//GEN-LAST:event_btnAgregarCliActionPerformed
 
     private void btnRegisCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisCliActionPerformed
@@ -382,10 +417,20 @@ public class VistaCliente extends javax.swing.JFrame {
 
     private void btnListarCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarCliActionPerformed
         // TODO add your handling code here:
+        if (controlador != null) {
+            controlador.listar(tablaCli);
+        } else {
+            showMessage("Error: Controlador no asignado correctamente.");
+        }
     }//GEN-LAST:event_btnListarCliActionPerformed
 
     private void btnBuscaCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaCliActionPerformed
         // TODO add your handling code here:
+        if (controlador != null) {
+            controlador.buscarCliente();
+        } else {
+            showMessage("Error: Controlador no asignado correctamente.");
+        }
     }//GEN-LAST:event_btnBuscaCliActionPerformed
 
     private void btnSalirCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirCliActionPerformed
@@ -411,7 +456,13 @@ public class VistaCliente extends javax.swing.JFrame {
     private void btnConfirmActCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActCliActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnConfirmActCliActionPerformed
+public void setControlador(ControladorCliente controlador) {
+        this.controlador = controlador;
+    }
 
+    private void showMessage(String message) {
+        JOptionPane.showMessageDialog(this, message);
+    }
     /**
      * @param args the command line arguments
      */
