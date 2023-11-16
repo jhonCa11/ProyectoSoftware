@@ -14,7 +14,7 @@ import java.sql.*;
  *
  * @author ASUS
  */
-public class VistaLogin extends javax.swing.JFrame{
+public class VistaLogin extends javax.swing.JFrame {
 
     /**
      * Creates new form VistaBienvenida
@@ -42,7 +42,6 @@ public class VistaLogin extends javax.swing.JFrame{
         txtUsua = new javax.swing.JTextField();
         lblUsu1 = new javax.swing.JLabel();
         btuInicieSesion = new javax.swing.JButton();
-        btuInicieSesion2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 51));
@@ -97,17 +96,6 @@ public class VistaLogin extends javax.swing.JFrame{
             }
         });
 
-        btuInicieSesion2.setBackground(new java.awt.Color(0, 102, 102));
-        btuInicieSesion2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btuInicieSesion2.setForeground(new java.awt.Color(255, 255, 255));
-        btuInicieSesion2.setText("Registrarse");
-        btuInicieSesion2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
-        btuInicieSesion2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btuInicieSesion2ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -123,10 +111,8 @@ public class VistaLogin extends javax.swing.JFrame{
                     .addComponent(lblUsu1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(52, 52, 52))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(64, 64, 64)
                 .addComponent(btuInicieSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btuInicieSesion2, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -142,10 +128,8 @@ public class VistaLogin extends javax.swing.JFrame{
                 .addComponent(lblCont, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btuInicieSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btuInicieSesion2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addComponent(btuInicieSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -190,41 +174,34 @@ public class VistaLogin extends javax.swing.JFrame{
 
     private void btuInicieSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btuInicieSesionActionPerformed
         // TODO add your handling code here:
-      String usuario = txtUsua.getText();
-    String contrasena = new String(jPasswordField.getPassword());
+        String usuario = txtUsua.getText();
+        String contrasena = new String(jPasswordField.getPassword());
 
-    Conexion conexion = new Conexion();
-    Connection con = conexion.getConnection();
+        Conexion conexion = new Conexion();
+        Connection con = conexion.getConnection();
 
-    try {
-        String query = "SELECT * FROM usuarios WHERE usuario = ? AND contraseña = ?";
-        PreparedStatement statement = con.prepareStatement(query);
-        statement.setString(1, usuario);
-        statement.setString(2, contrasena);
-        ResultSet resultSet = statement.executeQuery();
+        try {
+            String query = "SELECT * FROM usuarios WHERE usuario = ? AND contraseña = ?";
+            PreparedStatement statement = con.prepareStatement(query);
+            statement.setString(1, usuario);
+            statement.setString(2, contrasena);
+            ResultSet resultSet = statement.executeQuery();
 
-        if (resultSet.next()) {
-            VistaMenuAdmin VistaMenuAdmin = new VistaMenuAdmin();
-            VistaMenuAdmin.setVisible(true);
-            this.dispose();
-        } else {
-            JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos", "Error de inicio de sesión", JOptionPane.ERROR_MESSAGE);
+            if (resultSet.next()) {
+                VistaMenuAdmin VistaMenuAdmin = new VistaMenuAdmin();
+                VistaMenuAdmin.setVisible(true);
+                this.dispose();
+            } else {
+                JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos", "Error de inicio de sesión", JOptionPane.ERROR_MESSAGE);
+            }
+
+            resultSet.close();
+            statement.close();
+            con.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
-
-        resultSet.close();
-        statement.close();
-        con.close();
-    } catch ( Exception ex) {
-        ex.printStackTrace();
-    }
     }//GEN-LAST:event_btuInicieSesionActionPerformed
-
-    private void btuInicieSesion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btuInicieSesion2ActionPerformed
-        // TODO add your handling code here:
-            VistaSingUp VistaSingUp = new VistaSingUp();
-            VistaSingUp.setVisible(true);
-            this.dispose();
-    }//GEN-LAST:event_btuInicieSesion2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -257,14 +234,15 @@ public class VistaLogin extends javax.swing.JFrame{
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VistaLogin().setVisible(true);
+                VistaLogin v = new VistaLogin();
+                v.setVisible(true);
+                v.setLocationRelativeTo(null);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btuInicieSesion;
-    public javax.swing.JButton btuInicieSesion2;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

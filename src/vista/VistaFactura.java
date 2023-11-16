@@ -6,6 +6,7 @@ package vista;
 
 import controlador.ControladorProducto;
 import javax.swing.JOptionPane;
+
 /**
  *
  * @author ASUS
@@ -83,6 +84,11 @@ public class VistaFactura extends javax.swing.JFrame {
 
         txtClienFact.setEditable(false);
         txtClienFact.setBackground(new java.awt.Color(255, 255, 255));
+        txtClienFact.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtClienFactActionPerformed(evt);
+            }
+        });
 
         txtTallFact.setEnabled(false);
 
@@ -343,21 +349,22 @@ public class VistaFactura extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEliminarFactActionPerformed
 
     private void btnBuscarFactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarFactActionPerformed
-      VistaProducto VistaProducto = new VistaProducto();
+        VistaProducto VistaProducto = new VistaProducto();
         VistaProducto.setVisible(true);
         this.dispose(); // Cierra la vista actual
-    // TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_btnBuscarFactActionPerformed
 
     private void btnSalirFactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirFactActionPerformed
-         int confirm = JOptionPane.showConfirmDialog(this, "¿Estás seguro de que deseas salir?");
+        int confirm = JOptionPane.showConfirmDialog(this, "¿Estás seguro de que deseas salir?");
 
-    // Si se acepta el cuadro de diálogo, regresar a la clase "VistaLogin"
-    if (confirm == JOptionPane.YES_OPTION) {
-        VistaMenuAdmin VistaMenuAdmin = new VistaMenuAdmin();
-        VistaMenuAdmin.setVisible(true);
-        this.dispose(); // Cierra la vista actual
-    }        // TODO add your handling code here:
+        // Si se acepta el cuadro de diálogo, regresar a la clase "VistaLogin"
+        if (confirm == JOptionPane.YES_OPTION) {
+            VistaMenuAdmin VistaMenuAdmin = new VistaMenuAdmin();
+            VistaMenuAdmin.setVisible(true);
+            VistaMenuAdmin.setLocationRelativeTo(null);
+            this.dispose(); // Cierra la vista actual
+        }        // TODO add your handling code here:
     }//GEN-LAST:event_btnSalirFactActionPerformed
 
     private void btnListarFactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarFactActionPerformed
@@ -367,6 +374,10 @@ public class VistaFactura extends javax.swing.JFrame {
     private void btnGuardarFactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarFactActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnGuardarFactActionPerformed
+
+    private void txtClienFactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtClienFactActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtClienFactActionPerformed
 
     /**
      * @param args the command line arguments
@@ -398,7 +409,6 @@ public class VistaFactura extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
 
-        
         VistaFactura v = new VistaFactura();
         v.setVisible(true);
         v.setLocationRelativeTo(null);

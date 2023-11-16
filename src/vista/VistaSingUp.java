@@ -6,7 +6,9 @@ package vista;
 
 import controlador.ControladorAdministrador;
 import controlador.ControladorCliente;
+import java.sql.*;
 import javax.swing.JOptionPane;
+import modelo.Conexion;
 
 /**
  *
@@ -21,7 +23,6 @@ public class VistaSingUp extends javax.swing.JFrame {
         initComponents();
     }
 
-   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -210,7 +211,51 @@ public class VistaSingUp extends javax.swing.JFrame {
 
     private void btnRegisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisActionPerformed
         // TODO add your handling code here:
-        
+        String cedula = txtCed.getText();
+        String nuevoUsuario = txtUsua.getText();
+        String nuevaContrasena = new String(jPasswordField.getPassword());
+
+        Conexion conexion = new Conexion();
+        Connection con = conexion.getConnection();
+
+        try {
+            // Verificar si el usuario ya existe
+            String verificaExistencia = "SELECT * FROM usuarios WHERE usuario = ?";
+            PreparedStatement verificaStatement = con.prepareStatement(verificaExistencia);
+            verificaStatement.setString(1, cedula);
+            ResultSet existeResultSet = verificaStatement.executeQuery();
+
+            if (existeResultSet.next()) {
+                JOptionPane.showMessageDialog(this, "El usuario ya existe. Por favor, elige otro nombre de usuario.", "Error de registro", JOptionPane.ERROR_MESSAGE);
+            } else {
+                // Si el usuario no existe, realizar el registro
+                String registroQuery = "INSERT INTO usuarios (Cedula, usuario, contraseña) VALUES (?, ?, ?)";
+                PreparedStatement registroStatement = con.prepareStatement(registroQuery);
+                registroStatement.setString(1, cedula);
+                registroStatement.setString(2, nuevoUsuario);
+                registroStatement.setString(3, nuevaContrasena);
+
+                int filasAfectadas = registroStatement.executeUpdate();
+
+                if (filasAfectadas > 0) {
+                    JOptionPane.showMessageDialog(this, "Registro exitoso", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                    VistaMenuAdmin VistaMenuAdmin = new VistaMenuAdmin();
+                    VistaMenuAdmin.setVisible(true);
+                    this.dispose();
+                } else {
+                    JOptionPane.showMessageDialog(this, "No se pudo realizar el registro", "Error de registro", JOptionPane.ERROR_MESSAGE);
+                }
+
+                registroStatement.close();
+            }
+
+            existeResultSet.close();
+            verificaStatement.close();
+            con.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
     }//GEN-LAST:event_btnRegisActionPerformed
 
     private void txtUsuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuaActionPerformed
@@ -223,14 +268,15 @@ public class VistaSingUp extends javax.swing.JFrame {
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         // TODO add your handling code here:
-         int confirm = JOptionPane.showConfirmDialog(this, "¿Estás seguro de que deseas salir?");
+        int confirm = JOptionPane.showConfirmDialog(this, "¿Estás seguro de que deseas salir?");
 
-    // Si se acepta el cuadro de diálogo, regresar a la clase "VistaLogin"
-    if (confirm == JOptionPane.YES_OPTION) {
-        VistaLogin VistaLogin = new VistaLogin();
-        VistaLogin.setVisible(true);
-        this.dispose(); // Cierra la vista actual
-    }
+        // Si se acepta el cuadro de diálogo, regresar a la clase "VistaLogin"
+        if (confirm == JOptionPane.YES_OPTION) {
+            VistaMenuAdmin VistaMenuAdmin = new VistaMenuAdmin();
+            VistaMenuAdmin.setVisible(true);
+            VistaMenuAdmin.setLocationRelativeTo(null);
+            this.dispose();
+        }
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void jPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordFieldActionPerformed
@@ -240,43 +286,6 @@ public class VistaSingUp extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VistaSingUp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VistaSingUp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VistaSingUp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VistaSingUp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        VistaSingUp v = new VistaSingUp();
-        ControladorAdministrador con = new ControladorAdministrador(v);
-        v.setVisible(true);
-        v.setLocationRelativeTo(null);
-        /* Create and display the form
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new VistaSingUp().setVisible(true);
-            }
-        });
-*/
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnCancel;

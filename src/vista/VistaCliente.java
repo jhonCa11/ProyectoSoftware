@@ -12,20 +12,20 @@ public class VistaCliente extends javax.swing.JFrame {
     private ControladorCliente controlador;
 
     public VistaCliente() {
-        initComponents(); // Debería haber solo una llamada a initComponents aquí
-        initEventHandlers(); // Agrega este método para manejar eventos
+        initComponents(); 
+        initEventHandlers(); 
     }
+
     /**
      * Creates new form VistaCliente
-     */ 
-   private void initEventHandlers() {
-        btnListarCli.addActionListener(new ActionListener() {
+     */
+    private void initEventHandlers() {
+        
+         btnListarCli.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 btnListarCliActionPerformed(evt);
             }
         });
-
-        // Otros botones...
 
         btnAgregarCli.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
@@ -39,10 +39,32 @@ public class VistaCliente extends javax.swing.JFrame {
             }
         });
 
+        btnElimiCli.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                btnElimiCliActionPerformed(evt);
+            }
+        });
+
+        btnRegisCli.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                btnRegisCliActionPerformed(evt);
+            }
+        });
+
+        btnActuCli.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                btnActuCliActionPerformed(evt);
+            }
+        });
+
+        btnConfirmActCli.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                btnConfirmActCliActionPerformed(evt);
+            }
+        });
+
         // Resto del código existente...
     }
-
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -396,53 +418,55 @@ public class VistaCliente extends javax.swing.JFrame {
 
     private void btnAgregarCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarCliActionPerformed
         // TODO add your handling code here:
-        if (controlador != null) {
-            controlador.add();
-        } else {
-            showMessage("Error: Controlador no asignado correctamente.");
-        }
+        
     }//GEN-LAST:event_btnAgregarCliActionPerformed
 
     private void btnRegisCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisCliActionPerformed
         // TODO add your handling code here:
+        if (controlador != null) {
+            controlador.nuevo();
+        }
     }//GEN-LAST:event_btnRegisCliActionPerformed
 
     private void btnElimiCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnElimiCliActionPerformed
         // TODO add your handling code here:
+        if (controlador != null) {
+            controlador.delete();
+        }
     }//GEN-LAST:event_btnElimiCliActionPerformed
 
     private void btnActuCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActuCliActionPerformed
         // TODO add your handling code here:
+        if (controlador != null) {
+            controlador.Actualizar();
+        }
     }//GEN-LAST:event_btnActuCliActionPerformed
 
     private void btnListarCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarCliActionPerformed
         // TODO add your handling code here:
         if (controlador != null) {
             controlador.listar(tablaCli);
-        } else {
-            showMessage("Error: Controlador no asignado correctamente.");
-        }
+        } 
     }//GEN-LAST:event_btnListarCliActionPerformed
 
     private void btnBuscaCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaCliActionPerformed
         // TODO add your handling code here:
         if (controlador != null) {
             controlador.buscarCliente();
-        } else {
-            showMessage("Error: Controlador no asignado correctamente.");
-        }
+        } 
     }//GEN-LAST:event_btnBuscaCliActionPerformed
 
     private void btnSalirCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirCliActionPerformed
         // TODO add your handling code here:
         int confirm = JOptionPane.showConfirmDialog(this, "¿Estás seguro de que deseas salir?");
 
-    // Si se acepta el cuadro de diálogo, regresar a la clase "VistaLogin"
-    if (confirm == JOptionPane.YES_OPTION) {
-        VistaMenuAdmin VistaMenuAdmin = new VistaMenuAdmin();
-        VistaMenuAdmin.setVisible(true);
-        this.dispose(); // Cierra la vista actual
-    }
+        // Si se acepta el cuadro de diálogo, regresar a la clase "VistaLogin"
+        if (confirm == JOptionPane.YES_OPTION) {
+            VistaMenuAdmin VistaMenuAdmin = new VistaMenuAdmin();
+            VistaMenuAdmin.setVisible(true);
+            VistaMenuAdmin.setLocationRelativeTo(null);
+            this.dispose(); // Cierra la vista actual
+        }
     }//GEN-LAST:event_btnSalirCliActionPerformed
 
     private void txtAplCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAplCliActionPerformed
@@ -455,23 +479,23 @@ public class VistaCliente extends javax.swing.JFrame {
 
     private void btnConfirmActCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActCliActionPerformed
         // TODO add your handling code here:
+        if (controlador != null) {
+            controlador.Actualizar();
+        }
     }//GEN-LAST:event_btnConfirmActCliActionPerformed
-public void setControlador(ControladorCliente controlador) {
+    
+    public void setControlador(ControladorCliente controlador) {
         this.controlador = controlador;
     }
 
     private void showMessage(String message) {
         JOptionPane.showMessageDialog(this, message);
     }
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -494,14 +518,14 @@ public void setControlador(ControladorCliente controlador) {
         ControladorCliente con = new ControladorCliente(v);
         v.setVisible(true);
         v.setLocationRelativeTo(null);
-        
+
         /* Create and display the form 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new VistaCliente().setVisible(true);
             }
         });
-*/
+         */
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

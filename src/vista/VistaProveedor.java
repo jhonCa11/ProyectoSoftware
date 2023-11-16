@@ -11,8 +11,6 @@ public class VistaProveedor extends javax.swing.JFrame {
     public VistaProveedor() {
         initComponents();
     }
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -379,12 +377,13 @@ public class VistaProveedor extends javax.swing.JFrame {
         // TODO add your handling code here:
         int confirm = JOptionPane.showConfirmDialog(this, "¿Estás seguro de que deseas salir?");
 
-    // Si se acepta el cuadro de diálogo, regresar a la clase "VistaLogin"
-    if (confirm == JOptionPane.YES_OPTION) {
-        VistaMenuAdmin VistaMenuAdmin = new VistaMenuAdmin();
-        VistaMenuAdmin.setVisible(true);
-        this.dispose(); // Cierra la vista actual
-    }
+        // Si se acepta el cuadro de diálogo, regresar a la clase "VistaLogin"
+        if (confirm == JOptionPane.YES_OPTION) {
+            VistaMenuAdmin VistaMenuAdmin = new VistaMenuAdmin();
+            VistaMenuAdmin.setVisible(true);
+            VistaMenuAdmin.setLocationRelativeTo(null);
+            this.dispose(); // Cierra la vista actual
+        }
     }//GEN-LAST:event_btnSalirCliActionPerformed
 
     private void txtAplCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAplCliActionPerformed
@@ -431,14 +430,14 @@ public class VistaProveedor extends javax.swing.JFrame {
         ControladorProveedor con = new ControladorProveedor(v);
         v.setVisible(true);
         v.setLocationRelativeTo(null);
-        
+
         /* Create and display the form 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new VistaCliente().setVisible(true);
             }
         });
-*/
+         */
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

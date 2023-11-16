@@ -196,12 +196,13 @@ public class VistaProducto extends javax.swing.JFrame {
     private void btnSalirProducActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirProducActionPerformed
         int confirm = JOptionPane.showConfirmDialog(this, "¿Estás seguro de que deseas salir?");
 
-    // Si se acepta el cuadro de diálogo, regresar a la clase "VistaLogin"
-    if (confirm == JOptionPane.YES_OPTION) {
-        VistaMenuAdmin VistaMenuAdmin = new VistaMenuAdmin();
-        VistaMenuAdmin.setVisible(true);
-        this.dispose(); // Cierra la vista actual
-    }
+        // Si se acepta el cuadro de diálogo, regresar a la clase "VistaLogin"
+        if (confirm == JOptionPane.YES_OPTION) {
+            VistaMenuAdmin VistaMenuAdmin = new VistaMenuAdmin();
+            VistaMenuAdmin.setVisible(true);
+            VistaMenuAdmin.setLocationRelativeTo(null);
+            this.dispose(); // Cierra la vista actual
+        }
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSalirProducActionPerformed
 

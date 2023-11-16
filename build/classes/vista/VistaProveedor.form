@@ -92,9 +92,6 @@
               <Color blue="fc" green="fc" red="f3" type="rgb"/>
             </Property>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="PROVEEDOR"/>
-          </AccessibilityProperties>
 
           <Layout>
             <DimensionLayout dim="0">

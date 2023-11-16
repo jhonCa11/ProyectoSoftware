@@ -12,8 +12,6 @@ public class VistaInventario extends javax.swing.JFrame {
     public VistaInventario() {
         initComponents();
     }
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -115,9 +113,15 @@ public class VistaInventario extends javax.swing.JFrame {
             }
         });
 
+        txtCiuCli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCiuCliActionPerformed(evt);
+            }
+        });
+
         btnAgregarCli.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnAgregarCli.setForeground(new java.awt.Color(0, 204, 204));
-        btnAgregarCli.setText("Agregar Cliente");
+        btnAgregarCli.setText("Agregar Producto");
         btnAgregarCli.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         btnAgregarCli.setIconTextGap(2);
         btnAgregarCli.addActionListener(new java.awt.event.ActionListener() {
@@ -263,7 +267,7 @@ public class VistaInventario extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(3, 3, 3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtCiuCli, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -419,12 +423,13 @@ public class VistaInventario extends javax.swing.JFrame {
         // TODO add your handling code here:
         int confirm = JOptionPane.showConfirmDialog(this, "¿Estás seguro de que deseas salir?");
 
-    // Si se acepta el cuadro de diálogo, regresar a la clase "VistaLogin"
-    if (confirm == JOptionPane.YES_OPTION) {
-        VistaMenuAdmin VistaMenuAdmin = new VistaMenuAdmin();
-        VistaMenuAdmin.setVisible(true);
-        this.dispose(); // Cierra la vista actual
-    }
+        // Si se acepta el cuadro de diálogo, regresar a la clase "VistaLogin"
+        if (confirm == JOptionPane.YES_OPTION) {
+            VistaMenuAdmin VistaMenuAdmin = new VistaMenuAdmin();
+            VistaMenuAdmin.setVisible(true);
+            VistaMenuAdmin.setLocationRelativeTo(null);
+            this.dispose(); // Cierra la vista actual
+        }
     }//GEN-LAST:event_btnSalirCliActionPerformed
 
     private void txtAplCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAplCliActionPerformed
@@ -442,6 +447,10 @@ public class VistaInventario extends javax.swing.JFrame {
     private void txtFecNacCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFecNacCliActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtFecNacCliActionPerformed
+
+    private void txtCiuCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCiuCliActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCiuCliActionPerformed
 
     /**
      * @param args the command line arguments
@@ -475,14 +484,14 @@ public class VistaInventario extends javax.swing.JFrame {
         ControladorProducto con = new ControladorProducto(v);
         v.setVisible(true);
         v.setLocationRelativeTo(null);
-        
+
         /* Create and display the form 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new VistaCliente().setVisible(true);
             }
         });
-*/
+         */
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -500,7 +509,7 @@ public class VistaInventario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
+    public javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;

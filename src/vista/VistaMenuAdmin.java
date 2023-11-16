@@ -4,6 +4,7 @@
  */
 package vista;
 
+import controlador.*;
 import javax.swing.JOptionPane;
 
 /**
@@ -30,8 +31,6 @@ public class VistaMenuAdmin extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         btnCom = new javax.swing.JButton();
-        btnVen = new javax.swing.JButton();
-        btnDev = new javax.swing.JButton();
         btnCli = new javax.swing.JButton();
         btnPro = new javax.swing.JButton();
         btnEmp = new javax.swing.JButton();
@@ -54,12 +53,14 @@ public class VistaMenuAdmin extends javax.swing.JFrame {
         setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setFocusCycleRoot(true);
 
         btnCom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/ventas.png"))); // NOI18N
-
-        btnVen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/comprar.png"))); // NOI18N
-
-        btnDev.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/devolucion.png"))); // NOI18N
+        btnCom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnComActionPerformed(evt);
+            }
+        });
 
         btnCli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/cliente.png"))); // NOI18N
         btnCli.addActionListener(new java.awt.event.ActionListener() {
@@ -76,8 +77,18 @@ public class VistaMenuAdmin extends javax.swing.JFrame {
         });
 
         btnEmp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/empleado.png"))); // NOI18N
+        btnEmp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEmpActionPerformed(evt);
+            }
+        });
 
         btnProd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/productos.png"))); // NOI18N
+        btnProd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProdActionPerformed(evt);
+            }
+        });
 
         btnInv.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/inventario.png"))); // NOI18N
         btnInv.addActionListener(new java.awt.event.ActionListener() {
@@ -99,32 +110,27 @@ public class VistaMenuAdmin extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(40, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnVen, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCli, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnProd, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(49, 49, 49)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnInv, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(btnCom, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
-                        .addComponent(btnPro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(47, 47, 47)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(btnDev, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnEmp, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnFac, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnCom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnCli, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnProd, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(49, 49, 49)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnInv, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnPro, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(47, 47, 47)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnEmp, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnFac, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(39, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(btnVen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnDev, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnCom, javax.swing.GroupLayout.Alignment.LEADING))
+                .addComponent(btnCom)
                 .addGap(31, 31, 31)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCli, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -273,7 +279,7 @@ public class VistaMenuAdmin extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -282,22 +288,25 @@ public class VistaMenuAdmin extends javax.swing.JFrame {
 
     private void btnCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCliActionPerformed
         
-        VistaCliente VistaCliente = new VistaCliente();
-        VistaCliente.setVisible(true);
-        this.dispose(); // Cierra la vista actual
-        // TODO add your handling code here:
+        VistaCliente v = new VistaCliente();
+        ControladorCliente con = new ControladorCliente(v);
+        v.setVisible(true);
+        v.setLocationRelativeTo(null);
+        this.dispose();
     }//GEN-LAST:event_btnCliActionPerformed
 
     private void btnCerrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrar1ActionPerformed
         // TODO add your handling code here:
         VistaSingUp VistaSingUp = new VistaSingUp();
         VistaSingUp.setVisible(true);
+        VistaSingUp.setLocationRelativeTo(null);
         this.dispose();
     }//GEN-LAST:event_btnCerrar1ActionPerformed
 
     private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
         VistaLogin VistaLogin = new VistaLogin();
         VistaLogin.setVisible(true);
+        VistaLogin.setLocationRelativeTo(null);
         this.dispose();
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCerrarActionPerformed
@@ -305,14 +314,18 @@ public class VistaMenuAdmin extends javax.swing.JFrame {
     private void btnProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProActionPerformed
         // TODO add your handling code here:
         VistaProveedor VistaProveedor = new VistaProveedor();
+        ControladorProveedor con = new ControladorProveedor(VistaProveedor);
         VistaProveedor.setVisible(true);
+        VistaProveedor.setLocationRelativeTo(null);
         this.dispose();
 
     }//GEN-LAST:event_btnProActionPerformed
 
     private void btnInvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInvActionPerformed
-        VistaProducto VistaProducto = new VistaProducto();
-        VistaProducto.setVisible(true);
+        VistaInventario VistaInventario = new VistaInventario();
+        ControladorProducto con = new ControladorProducto(VistaInventario);
+        VistaInventario.setVisible(true);
+        VistaInventario.setLocationRelativeTo(null);
         this.dispose();
 
         // TODO add your handling code here:
@@ -321,10 +334,31 @@ public class VistaMenuAdmin extends javax.swing.JFrame {
     private void btnFacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacActionPerformed
         VistaFactura VistaFactura = new VistaFactura();
         VistaFactura.setVisible(true);
+        VistaFactura.setLocationRelativeTo(null);
         this.dispose();
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnFacActionPerformed
+
+    private void btnComActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnComActionPerformed
+
+    private void btnEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmpActionPerformed
+          VistaEmpleado VistaEmpleado = new VistaEmpleado();
+        ControladorEmpleado con = new ControladorEmpleado(VistaEmpleado);
+        VistaEmpleado.setVisible(true);
+        VistaEmpleado.setLocationRelativeTo(null);
+        this.dispose(); // TODO add your handling code here:
+    }//GEN-LAST:event_btnEmpActionPerformed
+
+    private void btnProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProdActionPerformed
+          VistaProducto VistaProducto = new VistaProducto();
+        ControladorProducto con = new ControladorProducto(VistaProducto);
+        VistaProducto.setVisible(true);
+        VistaProducto.setLocationRelativeTo(null);
+        this.dispose();  // TODO add your handling code here:
+    }//GEN-LAST:event_btnProdActionPerformed
 
     /**
      * @param args the command line arguments
@@ -366,13 +400,11 @@ public class VistaMenuAdmin extends javax.swing.JFrame {
     private javax.swing.JButton btnCerrar1;
     private javax.swing.JButton btnCli;
     private javax.swing.JButton btnCom;
-    private javax.swing.JButton btnDev;
     private javax.swing.JButton btnEmp;
     private javax.swing.JButton btnFac;
     private javax.swing.JButton btnInv;
     private javax.swing.JButton btnPro;
     private javax.swing.JButton btnProd;
-    private javax.swing.JButton btnVen;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
