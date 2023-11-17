@@ -349,7 +349,7 @@ public class VistaFactura extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEliminarFactActionPerformed
 
     private void btnBuscarFactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarFactActionPerformed
-        VistaProducto VistaProducto = new VistaProducto();
+        VistaBuscarProducto VistaProducto = new VistaBuscarProducto();
         VistaProducto.setVisible(true);
         this.dispose(); // Cierra la vista actual
         // TODO add your handling code here:

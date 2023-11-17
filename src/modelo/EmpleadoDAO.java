@@ -23,7 +23,7 @@ public class EmpleadoDAO { // Declaración de la clase EstudianteDAO
        List<Empleado> datos = new ArrayList<>();
        try {
             con = conectar.getConnection(); // Establece una conexión con la base de datos utilizando el método getConnection de la clase Conexion
-            ps = con.prepareStatement("select * from zapateria.Empleado"); // Prepara la consulta a la base de datos utilizando el método prepareStatement de la clase Connection
+            ps = con.prepareStatement("select * from empleado"); // Prepara la consulta a la base de datos utilizando el método prepareStatement de la clase Connection
             rs = ps.executeQuery(); // Ejecuta la consulta a la base de datos utilizando el método executeQuery de la clase PreparedStatement y almacena los resultados en la variable rs
             while(rs.next()){ // Inicio del bucle while que recorre todos los registros devueltos por la consulta
                 Empleado p = new Empleado(); 
@@ -45,7 +45,7 @@ public class EmpleadoDAO { // Declaración de la clase EstudianteDAO
     
     public int agregar(Empleado per){
         int r=0;
-        String sql = "insert into Empleado(cedula, nombre, apellido, telefono, fechaNacimiento, email, ciudad, direccion)values(?,?,?,?,?,?,?,?)";
+        String sql = "insert into empleado empleado (cedula, nombre, apellido, telefono, email, cargo, salario)values(?,?,?,?,?,?,?,?)";
         try {
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);

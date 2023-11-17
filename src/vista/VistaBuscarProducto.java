@@ -11,12 +11,12 @@ import javax.swing.JOptionPane;
  *
  * @author ASUS
  */
-public class VistaProducto extends javax.swing.JFrame {
+public class VistaBuscarProducto extends javax.swing.JFrame {
 
     /**
      * Creates new form VistaCliente
      */
-    public VistaProducto() {
+    public VistaBuscarProducto() {
         initComponents();
     }
 
@@ -227,14 +227,22 @@ public class VistaProducto extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VistaProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaBuscarProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VistaProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaBuscarProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VistaProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaBuscarProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VistaProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaBuscarProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -245,7 +253,7 @@ public class VistaProducto extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        VistaProducto v = new VistaProducto();
+        VistaBuscarProducto v = new VistaBuscarProducto();
         ControladorProducto con = new ControladorProducto(v);
         v.setVisible(true);
         v.setLocationRelativeTo(null);

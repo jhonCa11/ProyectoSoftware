@@ -353,7 +353,7 @@ public class VistaMenuAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEmpActionPerformed
 
     private void btnProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProdActionPerformed
-          VistaProducto VistaProducto = new VistaProducto();
+          VistaBuscarProducto VistaProducto = new VistaBuscarProducto();
         ControladorProducto con = new ControladorProducto(VistaProducto);
         VistaProducto.setVisible(true);
         VistaProducto.setLocationRelativeTo(null);

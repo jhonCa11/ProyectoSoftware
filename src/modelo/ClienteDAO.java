@@ -23,7 +23,7 @@ public class ClienteDAO { // Declaración de la clase EstudianteDAO
        List<Cliente> datos = new ArrayList<>();
        try {
             con = conectar.getConnection(); // Establece una conexión con la base de datos utilizando el método getConnection de la clase Conexion
-            ps = con.prepareStatement("select * from zapateria.cliente"); // Prepara la consulta a la base de datos utilizando el método prepareStatement de la clase Connection
+            ps = con.prepareStatement("select * from cliente"); // Prepara la consulta a la base de datos utilizando el método prepareStatement de la clase Connection
             rs = ps.executeQuery(); // Ejecuta la consulta a la base de datos utilizando el método executeQuery de la clase PreparedStatement y almacena los resultados en la variable rs
             while(rs.next()){ // Inicio del bucle while que recorre todos los registros devueltos por la consulta
                 Cliente p = new Cliente(); 
@@ -72,7 +72,7 @@ public class ClienteDAO { // Declaración de la clase EstudianteDAO
     
     public int actualizar(Cliente per){
         int r =0;
-        String sql = "UPDATE zapateria.cliente SET nombre = ?, apellido = ?, telefono=?, fechaNacimiento = ?, email = ?, ciudad = ?, direccion = ? WHERE cedula = ?";
+        String sql = "UPDATE cliente SET nombre = ?, apellido = ?, telefono=?, fechaNacimiento = ?, email = ?, ciudad = ?, direccion = ? WHERE cedula = ?";
         try {
             ps = con.prepareStatement(sql);
             ps.setString(1, per.getNombre());
@@ -98,7 +98,7 @@ public class ClienteDAO { // Declaración de la clase EstudianteDAO
     
     public int Delete(int id){
         int r =0;
-        String sql = "delete from zapateria.cliente where cedula =" + id;
+        String sql = "delete from cliente where cedula =" + id;
         try {
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);

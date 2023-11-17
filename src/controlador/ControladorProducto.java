@@ -2,7 +2,7 @@ package controlador;
 
 import modelo.Producto;
 import modelo.ProductoDAO;
-import vista.VistaProducto;
+import vista.VistaBuscarProducto;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
@@ -19,7 +19,7 @@ public class ControladorProducto implements ActionListener {
     ProductoDAO dao = new ProductoDAO();
     Producto Producto = new Producto();
     VistaInventario vista = new VistaInventario();
-    VistaProducto VistaProducto = new VistaProducto();
+    VistaBuscarProducto VistaProducto = new VistaBuscarProducto();
     DefaultTableModel modelo = new DefaultTableModel();
 
     public ControladorProducto(VistaInventario vista) {
@@ -32,7 +32,7 @@ public class ControladorProducto implements ActionListener {
         this.vista.btnBuscaCli.addActionListener(this);
         this.vista.btnConfirmActCli.addActionListener(this);
     }
-    public ControladorProducto(VistaProducto vistaF){
+    public ControladorProducto(VistaBuscarProducto vistaF){
         this.VistaProducto = vistaF;
         this.VistaProducto.btnBuscarProduc.addActionListener(this);
     }

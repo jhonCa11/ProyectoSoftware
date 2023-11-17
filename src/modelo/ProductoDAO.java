@@ -20,7 +20,7 @@ public class ProductoDAO { // Declaración de la clase EstudianteDAO
        List<Producto> datos = new ArrayList<>();
        try {
             con = conectar.getConnection(); // Establece una conexión con la base de datos utilizando el método getConnection de la clase Conexion
-            ps = con.prepareStatement("select * from zapateria.producto"); // Prepara la consulta a la base de datos utilizando el método prepareStatement de la clase Connection
+            ps = con.prepareStatement("select * from producto"); // Prepara la consulta a la base de datos utilizando el método prepareStatement de la clase Connection
             rs = ps.executeQuery(); // Ejecuta la consulta a la base de datos utilizando el método executeQuery de la clase PreparedStatement y almacena los resultados en la variable rs
             while(rs.next()){ // Inicio del bucle while que recorre todos los registros devueltos por la consulta
                 Producto p = new Producto(); 

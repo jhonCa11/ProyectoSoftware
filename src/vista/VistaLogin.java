@@ -149,7 +149,7 @@ public class VistaLogin extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 407, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 407, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -167,10 +167,6 @@ public class VistaLogin extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtUsuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtUsuaActionPerformed
 
     private void btuInicieSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btuInicieSesionActionPerformed
         // TODO add your handling code here:
@@ -202,6 +198,10 @@ public class VistaLogin extends javax.swing.JFrame {
             ex.printStackTrace();
         }
     }//GEN-LAST:event_btuInicieSesionActionPerformed
+
+    private void txtUsuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUsuaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -242,7 +242,7 @@ public class VistaLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btuInicieSesion;
+    private javax.swing.JButton btuInicieSesion;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
