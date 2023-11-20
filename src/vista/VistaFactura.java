@@ -55,16 +55,20 @@ public class VistaFactura extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
-        setUndecorated(true);
+        setMinimumSize(new java.awt.Dimension(784, 600));
+        getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setOpaque(false);
 
         jPanel2.setBackground(new java.awt.Color(238, 255, 238));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "FACTURA", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14), new java.awt.Color(0, 153, 153))); // NOI18N
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "FACTURA", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14), new java.awt.Color(255, 255, 255))); // NOI18N
         jPanel2.setForeground(new java.awt.Color(243, 252, 252));
+        jPanel2.setOpaque(false);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 204, 204));
@@ -310,7 +314,7 @@ public class VistaFactura extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 787, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 750, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -319,41 +323,23 @@ public class VistaFactura extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(6, 0, 762, 560);
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpg"))); // NOI18N
+        getContentPane().add(jLabel9);
+        jLabel9.setBounds(1, 3, 780, 560);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAgregarFactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarFactActionPerformed
+    private void btnGuardarFactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarFactActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnAgregarFactActionPerformed
-
-    private void btnEliminarFactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarFactActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnEliminarFactActionPerformed
-
-    private void btnBuscarFactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarFactActionPerformed
-        VistaBuscarProducto VistaProducto = new VistaBuscarProducto();
-        VistaProducto.setVisible(true);
-        this.dispose(); // Cierra la vista actual
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnBuscarFactActionPerformed
+    }//GEN-LAST:event_btnGuardarFactActionPerformed
 
     private void btnSalirFactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirFactActionPerformed
         int confirm = JOptionPane.showConfirmDialog(this, "¿Estás seguro de que deseas salir?");
@@ -367,13 +353,24 @@ public class VistaFactura extends javax.swing.JFrame {
         }        // TODO add your handling code here:
     }//GEN-LAST:event_btnSalirFactActionPerformed
 
+    private void btnBuscarFactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarFactActionPerformed
+        VistaBuscarProducto VistaProducto = new VistaBuscarProducto();
+        VistaProducto.setVisible(true);
+        this.dispose(); // Cierra la vista actual
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarFactActionPerformed
+
     private void btnListarFactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarFactActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnListarFactActionPerformed
 
-    private void btnGuardarFactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarFactActionPerformed
+    private void btnEliminarFactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarFactActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnGuardarFactActionPerformed
+    }//GEN-LAST:event_btnEliminarFactActionPerformed
+
+    private void btnAgregarFactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarFactActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAgregarFactActionPerformed
 
     private void txtClienFactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtClienFactActionPerformed
         // TODO add your handling code here:
@@ -415,12 +412,12 @@ public class VistaFactura extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnAgregarFact;
-    public javax.swing.JButton btnBuscarFact;
-    public javax.swing.JButton btnEliminarFact;
-    public javax.swing.JButton btnGuardarFact;
-    public javax.swing.JButton btnListarFact;
-    public javax.swing.JButton btnSalirFact;
+    private javax.swing.JButton btnAgregarFact;
+    private javax.swing.JButton btnBuscarFact;
+    private javax.swing.JButton btnEliminarFact;
+    private javax.swing.JButton btnGuardarFact;
+    private javax.swing.JButton btnListarFact;
+    private javax.swing.JButton btnSalirFact;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -429,6 +426,7 @@ public class VistaFactura extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;

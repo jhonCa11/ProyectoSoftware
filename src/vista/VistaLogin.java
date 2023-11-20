@@ -34,42 +34,45 @@ public class VistaLogin extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
         lblCont = new javax.swing.JLabel();
         lblUsu = new javax.swing.JLabel();
         jPasswordField = new javax.swing.JPasswordField();
         txtUsua = new javax.swing.JTextField();
         lblUsu1 = new javax.swing.JLabel();
         btuInicieSesion = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 51));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "AJJG", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 24), new java.awt.Color(0, 102, 102))); // NOI18N
-        jPanel1.setForeground(new java.awt.Color(0, 102, 102));
+        jPanel1.setBackground(new java.awt.Color(83, 78, 72));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "AJJG", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 24), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.setToolTipText("");
         jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.setFocusCycleRoot(true);
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/1-1.jpg"))); // NOI18N
-
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setName(""); // NOI18N
+        jPanel1.setLayout(null);
 
         lblCont.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lblCont.setForeground(new java.awt.Color(0, 102, 102));
+        lblCont.setForeground(new java.awt.Color(0, 0, 0));
         lblCont.setText("Contraseña:");
+        jPanel1.add(lblCont);
+        lblCont.setBounds(500, 230, 210, 27);
 
         lblUsu.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lblUsu.setForeground(new java.awt.Color(0, 102, 102));
+        lblUsu.setForeground(new java.awt.Color(255, 255, 255));
         lblUsu.setText("Usuario: ");
+        jPanel1.add(lblUsu);
+        lblUsu.setBounds(500, 150, 190, 33);
 
         jPasswordField.setFont(new java.awt.Font("Wide Latin", 0, 18)); // NOI18N
         jPasswordField.setForeground(new java.awt.Color(0, 153, 153));
         jPasswordField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jPasswordField.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
+        jPanel1.add(jPasswordField);
+        jPasswordField.setBounds(420, 250, 239, 31);
 
         txtUsua.setForeground(new java.awt.Color(0, 153, 153));
         txtUsua.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -79,11 +82,15 @@ public class VistaLogin extends javax.swing.JFrame {
                 txtUsuaActionPerformed(evt);
             }
         });
+        jPanel1.add(txtUsua);
+        txtUsua.setBounds(420, 180, 239, 33);
 
         lblUsu1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        lblUsu1.setForeground(new java.awt.Color(0, 102, 102));
+        lblUsu1.setForeground(new java.awt.Color(255, 255, 255));
         lblUsu1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblUsu1.setText("Iniciar sesión ");
+        jPanel1.add(lblUsu1);
+        lblUsu1.setBounds(420, 70, 250, 45);
 
         btuInicieSesion.setBackground(new java.awt.Color(0, 102, 102));
         btuInicieSesion.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -95,74 +102,22 @@ public class VistaLogin extends javax.swing.JFrame {
                 btuInicieSesionActionPerformed(evt);
             }
         });
+        jPanel1.add(btuInicieSesion);
+        btuInicieSesion.setBounds(470, 310, 114, 37);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblUsu)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(txtUsua, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE)
-                        .addComponent(jPasswordField, javax.swing.GroupLayout.Alignment.LEADING))
-                    .addComponent(lblCont)
-                    .addComponent(lblUsu1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(52, 52, 52))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(64, 64, 64)
-                .addComponent(btuInicieSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addComponent(lblUsu1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lblUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtUsua, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblCont, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addComponent(btuInicieSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(65, 65, 65))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 407, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/1-1.jpg"))); // NOI18N
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(10, 30, 680, 420);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 700, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 458, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -242,10 +197,9 @@ public class VistaLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btuInicieSesion;
+    public javax.swing.JButton btuInicieSesion;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPasswordField jPasswordField;
     private javax.swing.JLabel lblCont;
     private javax.swing.JLabel lblUsu;
